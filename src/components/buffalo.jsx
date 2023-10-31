@@ -14,7 +14,7 @@ const Buffalo = (props) => {
 
 
     return(<div className="buffalo">
-
+        <button className="leave-button">Leave</button>
     </div>)
 }
 

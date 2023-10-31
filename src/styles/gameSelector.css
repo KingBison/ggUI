@@ -77,11 +77,26 @@
 .buffalo-card:hover, .tripoley-card:hover, .mexican-train-card:hover{
     box-shadow: 0 0 30px lightgoldenrodyellow;
 
-    background-color: black;
     color: white;
 
     border: 5px solid white;
 }
+
+.buffalo-card:hover {
+    background-image: url("../assets/field.PNG");
+    background-size: cover;
+}
+
+.tripoley-card:hover {
+    background-image: url("../assets/casino.png");
+    background-size: cover;
+}
+
+.mexican-train-card:hover {
+    background-image: url("../assets/desert.PNG");
+    background-size: cover;
+}
+
 
 .game-selector-main > div > h1{
     padding-bottom: 5px;
