@@ -1,10 +1,12 @@
-function getServerUrl(setter) {
+function getServerUrl(game, setter) {
     fetch("config.json")
     .then(
         (res) => res.json())
     .then((config) => {
-        setter(config.buffaloServer)
-        console.log("BUFFALO SERVER URL SET TO " + config.buffaloServer)
+        if (game === 'buffalo') {
+            setter(config.buffaloServer)
+            console.log("BUFFALO SERVER URL SET TO " + config.buffaloServer)
+        }
     })
     .catch(()=>{
         setter(false)

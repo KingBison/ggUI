@@ -19,7 +19,8 @@ const Login = (props) => {
                 />
                 <button
                     onClick={()=>{
-                        setLoggedIn(true)
+                        setLoggedIn(true);
+                        sessionStorage.name = name;
                     }}
                     className="login-button"
                 >Enter</button>

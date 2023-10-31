@@ -1,25 +1,26 @@
 import { useEffect, useState } from 'react';
 import './App.css';
-import getServerUrl from './helpers/getServerUrl';
 import Login from './components/login';
 import GameSelector from './components/gameSelector';
+import Buffalo from './components/buffalo';
 
 
 
 function App() {
-
-  // servers
-  const [buffaloServer, setBuffaloServer] = useState(false)
 
   const [loggedIn, setLoggedIn] = useState(false)
   const [name, setName] = useState("")
   const [selectedGame, setSelectedGame] = useState("")
 
   useEffect(()=>{
-    getServerUrl(setBuffaloServer)
+    if (sessionStorage.name) {
+      setLoggedIn(true)
+      setName(sessionStorage.name)
+    }
   },[])
 
   const determineComponent = () => {
+
     if (!loggedIn) {
       return <Login 
           setLoggedIn={setLoggedIn} 
@@ -29,7 +30,16 @@ function App() {
     }
     if (selectedGame === "") {
       return <GameSelector
-
+        setSelectedGame={setSelectedGame}
+        name={name}
+        setName={setName}
+        setLoggedIn={setLoggedIn}
+      />
+    }
+    if (selectedGame === 'buffalo') {
+      return <Buffalo
+        setSelectedGame={setSelectedGame}
+        name={name}
       />
     }
   }
