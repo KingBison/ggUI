@@ -1,0 +1,27 @@
+.buffalo {
+    height: 100%;
+    width: 100%;
+}
+
+.buffalo-table {
+    position: fixed;
+    top: 30%;
+    left: 40%;
+
+    height: 25%;
+    width: 20%;
+
+    background-color: burlywood;
+
+    display: flex;
+    justify-content: center;
+    align-content: center;
+    flex-wrap: wrap;
+}
+
+.buffalo-table-inner {
+    height: 90%;
+    width: 90%;
+
+    background-color: #3d2911;
+}

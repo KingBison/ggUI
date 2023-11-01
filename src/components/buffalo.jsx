@@ -1,20 +1,32 @@
 import React, { useEffect, useState } from "react";
-import getServerUrl from "../helpers/getServerUrl";
+import setServerUrl from "../helpers/setServerUrl";
+import { activateServerManager } from "../helpers/serverUtil";
+import "../styles/buffalo.css"
+import BuffaloTable from "./buffaloTable";
+import LeaveButton from "./leaveButton";
+
+var controller;
 
 const Buffalo = (props) => {
 
 
-    const [gameData, setGameData] = useState(null)
-    const [server, setServer] = useState("")
+    const [gameData, setGameData] = useState(null);
+    const [server, setServer] = useState("");
 
     useEffect(()=>{
-        getServerUrl('buffalo', setServer)
+        setServerUrl('buffalo', setServer);
+            
     },[])
+
+    useEffect(()=>{
+        controller = activateServerManager(server, setGameData);
+    },[server])
 
 
 
     return(<div className="buffalo">
-        <button className="leave-button">Leave</button>
+        <LeaveButton setSelectedGame={props.setSelectedGame} controller={controller}/>
+        <BuffaloTable/>
     </div>)
 }
 
