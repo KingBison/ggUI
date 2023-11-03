@@ -26,7 +26,9 @@ const Buffalo = (props) => {
 
     return(<div className="buffalo">
         <LeaveButton setSelectedGame={props.setSelectedGame} controller={controller}/>
-        <BuffaloTable/>
+        <BuffaloTable
+            gameData = {gameData}
+        />
     </div>)
 }
 

@@ -7,7 +7,7 @@ export const setGameDataService = (url, setGameData) => {
         setGameData(false)
         return;
     }
-    axios.get(url+"/getServerData")
+    axios.get(url+"/getGameData")
         .then((res) => {
             if (res.data) {
             setGameData(res.data)
