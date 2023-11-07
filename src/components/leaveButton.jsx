@@ -1,5 +1,5 @@
 import React from "react";
-import "../styles/leaveButton.css"
+import "../styles/misc.css"
 
 const LeaveButton = (props) => {
     return(<button 

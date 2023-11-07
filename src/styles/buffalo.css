@@ -1,22 +1,21 @@
 .buffalo {
     height: 100%;
     width: 100%;
+    display: flex;
+    justify-content: center;
+    align-content: center;
+    flex-wrap: wrap;
 }
 
 .buffalo-table {
-    position: absolute;
-    top: 30%;
-    left: 40%;
-
-    height: 25%;
-    width: 20%;
-
     background-color: burlywood;
 
     display: flex;
     justify-content: center;
     align-content: center;
     flex-wrap: wrap;
+
+    border-radius: 2vh;
 }
 
 .buffalo-table-inner {
@@ -27,14 +26,43 @@
 
     display: grid;
     grid-template-columns: 50% 50%;
+    margin: 2vh;
+    border-radius: 2vh;
 }
 
 .drawn-card, .top-of-discard {
     text-align: center;
 
-    height: 100px;
+    height: 20vh;
     width: auto;
     background-color: white;
-    margin: 10%;
     border-radius: 5%;
+    margin: 2vh;
+
+    border: 2px solid black;
+}
+
+.buffalo-my-card{
+    position: fixed;
+    bottom: 0px;
+
+    width: 10vw;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.buffalo-my-banner {
+    display: flex;
+    justify-content: space-between;
+}
+
+.buffalo-my-name, .buffalo-my-wins {
+    padding:15px;
+    font-family: 'Ubuntu', sans-serif;
+    font-size: 20px;
+    
+    white-space: nowrap;
+    background-color: paleturquoise;
 }
