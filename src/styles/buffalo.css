@@ -42,7 +42,7 @@
     border: 2px solid black;
 }
 
-.buffalo-my-card{
+.buffalo-my-tableau{
     position: fixed;
     bottom: 0px;
 
@@ -65,4 +65,60 @@
     
     white-space: nowrap;
     background-color: paleturquoise;
+}
+
+.buffalo-my-cards {
+    display: flex;
+    flex-direction: row;
+}
+
+.buffalo-my-cards > img {
+    height: 18vh;
+    width: auto;
+    background-color: white;
+    border-radius: 5%;
+    margin: 2vh;
+
+    border: 2px solid black;
+}
+
+.buffalo-others {
+    position: absolute;
+    height: 100vh;
+    width: 70vw;
+}
+
+.buffalo-others-tableau {
+    position: absolute;
+    text-align: center;
+}
+
+
+.buffalo-others-banner {
+    display: flex;
+    justify-content: space-between;
+    background-color: paleturquoise;
+}
+
+.buffalo-others-name, .buffalo-others-wins {
+    padding:5px;
+    font-family: 'Ubuntu', sans-serif;
+    font-size: 10px;
+    
+    white-space: nowrap;
+}
+
+.buffalo-others-cards {
+    display: flex;
+    flex-direction: row;
+}
+
+.buffalo-others-cards > img {
+    height: 12vh;
+    width: auto;
+    background-color: white;
+    border-radius: 5%;
+    margin: 1vh;
+
+    border: 1px solid black;
 }

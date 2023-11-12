@@ -8,7 +8,8 @@ import LoadingBanner from "./loadingBanner";
 import ErrorBanner from "./errorBanner";
 import axios from "axios";
 import ExitGame from "./exitGame";
-import BuffaloPlayerCard from "./buffaloPlayerCard";
+import BuffaloPlayerTableau from "./buffaloPlayerTableau";
+import BuffaloOtherPlayerTableaus from "./buffaloOtherPlayerTableaus";
 
 var controller;
 
@@ -48,16 +49,21 @@ const Buffalo = (props) => {
         </div>)
     } else {
         return(<div className="buffalo">
+            <BuffaloOtherPlayerTableaus
+                gameData={gameData}
+                name={NAME}
+            />
             <LeaveButton setSelectedGame={props.setSelectedGame} controller={controller}/>
             <ExitGame setSelectedGame={props.setSelectedGame} controller={controller} server={server} name={NAME}/>
             <BuffaloTable
                 gameData = {gameData}
                 name={NAME}
             />
-            <BuffaloPlayerCard 
+            <BuffaloPlayerTableau 
                 gameData={gameData} 
                 name={NAME}
             />
+            
         </div>)
     }
 }

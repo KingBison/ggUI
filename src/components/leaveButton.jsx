@@ -8,7 +8,7 @@ const LeaveButton = (props) => {
             props.setSelectedGame("")
             clearInterval(props.controller)
         }}
-    >Leave</button>)
+    >Back to Main Menu</button>)
 }
 
 export default LeaveButton;

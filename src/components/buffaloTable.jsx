@@ -18,7 +18,7 @@ const BuffaloTable = (props) => {
         <div className="buffalo-table">
             <div className="buffalo-table-inner">
                 <img className="drawn-card" alt="card" src={getCardGraphic("clubs", "two", false)}/>
-                <img className="top-of-discard" alt="card" src={getCardGraphic("spades", "two", true)}/>
+                <img className="top-of-discard" alt="card" src={getCardGraphic("", "", true)}/>
             </div>
         </div>
     );
