@@ -52,6 +52,8 @@ const Buffalo = (props) => {
             <BuffaloOtherPlayerTableaus
                 gameData={gameData}
                 name={NAME}
+                server={server}
+                setGameData={setGameData}
             />
             <LeaveButton setSelectedGame={props.setSelectedGame} controller={controller}/>
             <ExitGame setSelectedGame={props.setSelectedGame} controller={controller} server={server} name={NAME}/>
@@ -60,8 +62,10 @@ const Buffalo = (props) => {
                 name={NAME}
             />
             <BuffaloPlayerTableau 
-                gameData={gameData} 
+                gameData={gameData}
                 name={NAME}
+                server={server}
+                setGameData={setGameData}
             />
             
         </div>)

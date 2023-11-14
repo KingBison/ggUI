@@ -67,6 +67,47 @@
     background-color: paleturquoise;
 }
 
+.buffalo-my-ready-button {
+    width: 150px;
+
+    display: flex;
+    justify-content: center;
+    align-content: center;
+    flex-wrap: wrap;
+
+}
+
+.buffalo-my-ready-button div {
+    height: 80%;
+    width: 80%;
+    display: flex;
+    justify-content: center;
+    align-content: center;
+    flex-wrap: wrap;
+
+    border: 2px solid black;
+    border-radius: 10px;
+
+    cursor: pointer;
+}
+
+.buffalo-my-ready-button-ready {
+   background-color: lightgreen;
+}
+
+.buffalo-my-ready-button-ready:hover {
+    background-color: green;
+ }
+
+.buffalo-my-ready-button-not-ready {
+    background-color: lightcoral;
+}
+
+.buffalo-my-ready-button-not-ready:hover {
+    background-color: red;
+ }
+
+
 .buffalo-my-cards {
     display: flex;
     flex-direction: row;

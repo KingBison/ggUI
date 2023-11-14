@@ -2,12 +2,13 @@ import React from "react";
 import { getCardGraphic } from "../helpers/getCardGraphic";
 
 const BuffaloOtherPlayerTableaus = (props) => {
-    const players = props.gameData.players
+    var players = props.gameData.players
 
     const getData = () => {
         if (!players) {
             return(<></>)
         }
+        players = reorderPlayers(players, props.name)
         return(players.map((player, index) => {
             if (index === 0) {
                 return(<div></div>)
@@ -47,6 +48,21 @@ const BuffaloOtherPlayerTableaus = (props) => {
             {getData()}
         </div>
     )
+}
+
+const reorderPlayers = (players, name) => {
+    const index = players.findIndex(player => player.name === name);
+    console.log(index)
+
+    if (index === -1) {
+        return players;
+    }
+    const beforePlayer = players.slice(0, index);
+    const afterPlayer = players.slice(index + 1);
+
+    const reorderedPlayers = [players[index], ...afterPlayer, ...beforePlayer];
+
+    return reorderedPlayers;
 }
 
 export default BuffaloOtherPlayerTableaus
