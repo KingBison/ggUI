@@ -20,13 +20,18 @@ const BuffaloOtherPlayerTableaus = (props) => {
             const x = xradius * Math.cos((angle * Math.PI) / 180) + window.innerWidth*.7/2
             const y = yradius * Math.sin((angle * Math.PI) / 180) + window.innerHeight/2;
 
+            var readyColor = "lightgreen"
+            if (!player.ready) {
+                readyColor = "lightcoral" 
+            }
+
             return(<div 
                 className="buffalo-others-tableau"
                 id={"buffalo-others-tableau-" + index}
                 style={{
                     top: y,
                     left: x,
-                    transform: "translate(-50%, -50%)"
+                    transform: "translate(-50%, -60%)"
                 }}
             >
                 <div className="buffalo-others-cards">
@@ -37,6 +42,7 @@ const BuffaloOtherPlayerTableaus = (props) => {
                 <div className="buffalo-others-banner">
                     <div className="buffalo-others-name">{player.name}</div>
                     <div className="buffalo-others-wins">Wins: {player.wins}</div>
+                    <div className="buffalo-others-ready-status-box" style={{backgroundColor:readyColor}}></div>
                 </div>
             </div>)
         }))
