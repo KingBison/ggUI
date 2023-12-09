@@ -3,6 +3,7 @@ import { getCardGraphic } from "../helpers/getCardGraphic";
 
 const BuffaloOtherPlayerTableaus = (props) => {
     var players = props.gameData.players
+    var gameData = props.gameData
 
     const getData = () => {
         if (!players) {
@@ -14,8 +15,8 @@ const BuffaloOtherPlayerTableaus = (props) => {
                 return(<div></div>)
             }
             const angle = (360 / players.length) * index + 90;
-            const xradius = window.innerWidth * 0.4 * .7
-            const yradius = window.innerHeight * 0.4; 
+            const xradius = window.innerWidth * 0.45 * .7
+            const yradius = window.innerHeight * 0.45; 
 
             const x = xradius * Math.cos((angle * Math.PI) / 180) + window.innerWidth*.7/2
             const y = yradius * Math.sin((angle * Math.PI) / 180) + window.innerHeight/2;
@@ -25,18 +26,34 @@ const BuffaloOtherPlayerTableaus = (props) => {
                 readyColor = "lightcoral" 
             }
 
+            var shadow = ""
+            var bgColor = ""
+            if (player.name == gameData.turnPointer) {
+                shadow = "0 0 10px 10px #C8C7FD"
+                bgColor = "#C8C7FD"
+            }
+
             return(<div 
                 className="buffalo-others-tableau"
                 id={"buffalo-others-tableau-" + index}
                 style={{
                     top: y,
                     left: x,
-                    transform: "translate(-50%, -60%)"
+                    transform: "translate(-50%, -60%)",
+                    boxShadow: shadow,
+                    backgroundColor: bgColor
                 }}
             >
                 <div className="buffalo-others-cards">
                     {player.hand.map((card, i)=>{
-                        return (<img src={getCardGraphic(card.suit.name, card.number.name, card.visible)} alt={"card"}/>)
+                        var visiblity = false
+                        if (!gameData.flags.preGame || gameData.flags.resolution) {
+                            visiblity = card.Visible
+                            if (gameData.flags.resolution) {
+                                visiblity = true
+                            }
+                        }
+                        return (<img src={getCardGraphic(card.suit.name, card.number.name, visiblity)} alt={"card"}/>)
                     })}
                 </div>
                 <div className="buffalo-others-banner">

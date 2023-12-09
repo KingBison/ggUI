@@ -5,6 +5,7 @@
     justify-content: center;
     align-content: center;
     flex-wrap: wrap;
+    
 }
 
 .buffalo-table {
@@ -47,6 +48,7 @@
     bottom: 0px;
 
     width: 10vw;
+    width: fit-content;
 
     display: flex;
     flex-direction: column;
@@ -61,10 +63,12 @@
 .buffalo-my-name, .buffalo-my-wins {
     padding:15px;
     font-family: 'Ubuntu', sans-serif;
-    font-size: 20px;
+    font-size: 30px;
     
     white-space: nowrap;
-    background-color: paleturquoise;
+    background-color: #7A71F7;
+    border: 2px solid black;
+    
 }
 
 .buffalo-my-ready-button {
@@ -138,7 +142,7 @@
 .buffalo-others-banner {
     display: flex;
     justify-content: space-between;
-    background-color: paleturquoise;
+    background-color: #7A71F7;
 }
 
 .buffalo-others-name, .buffalo-others-wins {

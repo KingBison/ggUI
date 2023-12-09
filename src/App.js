@@ -3,6 +3,7 @@ import './App.css';
 import Login from './components/login';
 import GameSelector from './components/gameSelector';
 import Buffalo from './components/buffalo';
+import BuffaloAdmin from './components/buffaloAdmin';
 
 
 
@@ -27,6 +28,12 @@ function App() {
           setName={setName}
           name = {name}
         />
+    }
+    if(name === "BUFFALO_ADMIN"){
+      return <BuffaloAdmin
+        setSelectedGame={setSelectedGame}
+        name={name}
+      />
     }
     if (selectedGame === "") {
       return <GameSelector

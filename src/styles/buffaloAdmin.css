@@ -1,0 +1,24 @@
+.buffalo-admin-player-profile {
+    border: 2px solid black;
+    margin: 20px;
+    padding: 10px;
+    background-color: lightblue;
+}
+
+.buffalo-admin-cards img{
+    height: 200px;
+    width: auto;
+
+    border: 2px solid black;
+    margin:2px;
+    border-radius: 5px;
+    background-color: white;
+}
+
+.buffalo-admin-ready-true {
+    color: green;
+}
+
+.buffalo-admin-ready-false {
+    color: red;
+}
