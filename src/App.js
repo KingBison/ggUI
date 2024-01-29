@@ -1,61 +1,29 @@
-import { useEffect, useState } from 'react';
-import './App.css';
-import Login from './components/login';
-import GameSelector from './components/gameSelector';
-import Buffalo from './components/buffalo';
-import BuffaloAdmin from './components/buffaloAdmin';
+import React, { useEffect, useState } from "react";
+import Login from "./components/login";
+import Home from "./components/home";
 
+import { retrieveServers } from "./helpers/serverHelpers";
 
+const App = () => {
 
-function App() {
-
-  const [loggedIn, setLoggedIn] = useState(false)
-  const [name, setName] = useState("")
-  const [selectedGame, setSelectedGame] = useState("")
+  const [servers, setServers] = useState({})
 
   useEffect(()=>{
-    if (sessionStorage.name) {
-      setLoggedIn(true)
-      setName(sessionStorage.name)
-    }
+    retrieveServers(setServers)
   },[])
 
-  const determineComponent = () => {
+  const [name, setName] = useState("")
+  const [color, setColor] = useState("")
+  const [loggedIn, setLoggedIn] = useState(false)
 
-    if (!loggedIn) {
-      return <Login 
-          setLoggedIn={setLoggedIn} 
-          setName={setName}
-          name = {name}
-        />
-    }
-    if(name === "BUFFALO_ADMIN"){
-      return <BuffaloAdmin
-        setSelectedGame={setSelectedGame}
-        name={name}
-      />
-    }
-    if (selectedGame === "") {
-      return <GameSelector
-        setSelectedGame={setSelectedGame}
-        name={name}
-        setName={setName}
-        setLoggedIn={setLoggedIn}
-      />
-    }
-    if (selectedGame === 'buffalo') {
-      return <Buffalo
-        setSelectedGame={setSelectedGame}
-        name={name}
-      />
-    }
-  }
+  const [gameSelected, setGameSelected] = useState(false)
 
-  return (
-    <>
-      {determineComponent()}
-    </>
-  );
+  if (!loggedIn) {return(<Login setName={setName} setColor={setColor} setLoggedIn={setLoggedIn}/>)}
+
+  if (!gameSelected) {return(<Home name={name} color={color} setLoggedIn={setLoggedIn} setGameSelected={setGameSelected} servers={servers}/>)}
+
+  
+
 }
 
 export default App;

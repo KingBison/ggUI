@@ -1,0 +1,15 @@
+.home {
+    height: 100%;
+    width: 100%;
+
+    background-image: url("../assets/home_bg.png");
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+}
+
+.game-list {
+
+}
+
+.game-list > 

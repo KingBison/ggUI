@@ -1,47 +1,57 @@
-.login-main {
-    display: flex;
-    justify-content: center;
-    align-content: center;
-    flex-wrap: wrap;
+.login {
+    height: 100%;
+    width: 100%;
+
+    background-image: url("../assets/login_bg.png");
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+}
+
+.login-panel {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
 
     text-align: center;
-    height: 50%;
-    width: 50%;
 
-    border-radius: 20%;
-
-    background-color: paleturquoise;
-
-    font-size: 30px;
-
-    border: 5px solid black;
-    box-shadow: 0 0 10px black;
-}
-
-.login-content * {
-    font-size: 30px;
-    margin: 5px;
-    padding: 5px;
-
-    font-family: 'Ubuntu', sans-serif;
-}
-
-.login-input {
-    border: 2px solid black;
-    border-radius: 3px;
-    outline: none;
-}
-
-.login-button {
     background-color: white;
-    border-radius: 3px;
+    padding: 50px;
+    border: 5px solid black;
+    border-radius: 5vh;
+}
+
+.login-panel > * {
+    padding: 10px;
+    margin: 5px;
+}
+
+.login-message {
+    font-size: larger;
+    font-weight: bold;
+}
+
+.login-name {
+    text-align: center;
+    font-family: 'Ubuntu', sans-serif;
+    border: 2px solid gray;
+    border-radius: 2px;
+}
+
+.login-submit {
     border: 2px solid black;
-}
-
-.login-button:hover {
+    border-radius: 5px;
+    padding: 5px;
+    width: fit-content;
+    height: fit-content;
+    margin: 0 auto;
     cursor: pointer;
-    background-color: black;
-    color: white;
+
+    font-size: 50px;
 }
 
-
+.login-submit:hover{
+    color:white;
+    background-color: black;
+}
