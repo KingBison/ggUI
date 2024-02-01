@@ -1,0 +1,16 @@
+.game-picker {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.game-icon {
+    height: 50px;
+    width: auto;
+}
+
+.left-arrow, .right-arrow {
+    height: 20px;
+    width: auto;
+    cursor: pointer;
+}

@@ -4,10 +4,9 @@ import "../../styles/misc/colorPicker.css"
 const ColorPicker = (props) => {
 
     const colors = [
-        "white",
         "red",
         "orange",
-        "yellow",
+        "gold",
         "green",
         "blue",
         "indigo",

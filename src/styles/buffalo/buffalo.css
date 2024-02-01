@@ -1,0 +1,48 @@
+.buffalo {
+    height: 100%;
+    width: 100%;
+
+    position: fixed;
+
+    background-image: url("../../assets/buffalo/buffalo_bg.png");
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+}
+
+.my-tableau {
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+.my-banner {
+    display: flex;
+    align-items: center;
+    justify-content: space-between; 
+
+    background-color: white;
+    border: 3px solid black;
+    border-radius: 8px;
+    padding: 4px;
+}
+
+.my-name {
+    font-size: 30px;
+}
+
+.my-wins {
+    display: flex;
+    align-items: center;
+    justify-content: space-between; 
+}
+
+.my-trophy {
+    height: 50px;
+    width: auto;
+}
+
+.my-win-count {
+    font-size: 30px;
+}

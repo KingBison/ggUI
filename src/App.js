@@ -3,6 +3,7 @@ import Login from "./components/login";
 import Home from "./components/home";
 
 import { retrieveServers } from "./helpers/serverHelpers";
+import Buffalo from "./components/buffalo/buffalo";
 
 const App = () => {
 
@@ -16,13 +17,23 @@ const App = () => {
   const [color, setColor] = useState("")
   const [loggedIn, setLoggedIn] = useState(false)
 
-  const [gameSelected, setGameSelected] = useState(false)
+  const [gameId, setGameId] = useState("")
+  const [gameSelected, setGameSelected] = useState("")
+  const [gameAddress, setGameAddress] = useState("")
 
   if (!loggedIn) {return(<Login setName={setName} setColor={setColor} setLoggedIn={setLoggedIn}/>)}
 
-  if (!gameSelected) {return(<Home name={name} color={color} setLoggedIn={setLoggedIn} setGameSelected={setGameSelected} servers={servers}/>)}
+  if (!gameSelected) {return(<Home name={name} color={color} setLoggedIn={setLoggedIn} setGameSelected={setGameSelected} setGameId={setGameId} setGameAddress={setGameAddress} servers={servers}/>)}
 
-  
+  if (gameSelected == "buffalo" && gameId != "") {return(
+    <Buffalo
+      name={name}
+      color={color}
+      gameId={gameId}
+      server={gameAddress}
+      closeOut={()=>{setGameId("");setGameSelected("");}}
+    />
+  )}
 
 }
 

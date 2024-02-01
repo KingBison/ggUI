@@ -2,14 +2,134 @@
     height: 100%;
     width: 100%;
 
+    position: fixed;
+
     background-image: url("../assets/home_bg.png");
     background-size: cover;
     background-repeat: no-repeat;
     background-attachment: fixed;
 }
 
-.game-list {
+.server-list {
+    overflow-y: auto;
+}
+
+.server-list-head, .game, .create-new-game {
+    width: 400px;
+    background-color: white;
+    border: 3px solid black;
+    border-radius: 10px;
+
+    margin: 20px;
+    padding: 5px;
+
+    display: flex;
+    align-items: center;
+}
+
+.server-list-head, .create-new-game {
+    height: 50px;
+}
+
+.server-list-head {
+    justify-content: space-between;
+    padding: 5px;
+}
+
+.welcome-message {
+    font-size: 20px;
+    margin: 10px;
+}
+
+.refresh {
+    height: 20px;
+    width: 20px;
+    padding: 10px;
+    border-radius: 10px;
+    border: 2px solid black;
+    cursor: pointer;
+}
+
+.refresh:hover {
+    background-color: gray;
+}
+
+.game {
+    height: 100px;
+
+    display: grid;
+    grid-template-columns: 100px 300px;
+}
+
+.game-full-section {
+    height: 100%;
+    width: 100%;
+
+    display: grid;
+    grid-template-rows: 50% 50%;
+}
+
+.game-section-upper {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.player-count-section {
+    display: flex;
+    align-items: center;
+    font-size: 26px;
+}
+
+.game-section-lower {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.game-password-section {
+    display: flex;
+    align-items: center;
+}
+
+.join-button, .create-game-button {
+    border: 2px solid black;
+    border-radius: 5px;
+    font-size: 20px;
+    padding: 2px;
+    cursor: pointer;
+}
+
+.join-button:hover, .create-game-button:hover{
+    color: white;
+    background-color: black;
+}
+
+.create-new-game {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.pick-password {
+    width: 160px;
+}
+
+.create-game-button {
 
 }
 
-.game-list > 
+
+.game-icon {
+    height: 100px;
+    width: 100px;
+}
+
+.lock-icon, .player-icon {
+    height: 35px;
+    width: auto;
+}
+
+.game-list {
+    
+}
