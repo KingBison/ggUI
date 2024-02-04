@@ -7,9 +7,5 @@ html, body, #root {
 }
 
 #root {
-    display: flex;
-    justify-content: center;
-    align-content: center;
-    flex-wrap: wrap;
     font-family: 'Ubuntu', sans-serif;
 }

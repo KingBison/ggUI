@@ -99,6 +99,14 @@ const Game = (props) => {
                             } else {return(<div></div>)}
                         })()}
                         <div className="join-button" onClick={()=>{
+
+                            if (props.name === "ADMIN") {
+                                props.setGameId(game.gameId)
+                                props.setGameAddress(game.ADDR)
+                                props.setGameSelected(game.BASE)
+                                return
+                            }
+
                             axios.get(game.ADDR + "/handlePlayerEntry", {
                                 params: {
                                     gameId: game.gameId,
@@ -112,7 +120,7 @@ const Game = (props) => {
                                 props.setGameSelected(game.BASE)
                             }).catch((err) => {
                                 console.log(err)
-                                if (err.response.status == 404) {
+                                if (err.response.status === 404) {
                                     alert("PASSWORD IS INCORRECT")
                                 } else {
                                     alert("Failed to join game")

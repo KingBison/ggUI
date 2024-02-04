@@ -4,6 +4,7 @@ import Home from "./components/home";
 
 import { retrieveServers } from "./helpers/serverHelpers";
 import Buffalo from "./components/buffalo/buffalo";
+import BuffaloAdmin from "./components/buffalo/buffaloAdmin";
 
 const App = () => {
 
@@ -25,7 +26,17 @@ const App = () => {
 
   if (!gameSelected) {return(<Home name={name} color={color} setLoggedIn={setLoggedIn} setGameSelected={setGameSelected} setGameId={setGameId} setGameAddress={setGameAddress} servers={servers}/>)}
 
-  if (gameSelected == "buffalo" && gameId != "") {return(
+  if (gameSelected === "buffalo" && gameId !== "" && name === "ADMIN") {return(
+    <BuffaloAdmin
+      name={name}
+      color={color}
+      gameId={gameId}
+      server={gameAddress}
+      closeOut={()=>{setGameId("");setGameSelected("");}}
+    />
+  )}
+
+  if (gameSelected === "buffalo" && gameId !== "") {return(
     <Buffalo
       name={name}
       color={color}

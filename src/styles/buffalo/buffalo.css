@@ -3,6 +3,7 @@
     width: 100%;
 
     position: fixed;
+    
 
     background-image: url("../../assets/buffalo/buffalo_bg.png");
     background-size: cover;
@@ -15,6 +16,58 @@
     bottom: 0;
     left: 50%;
     transform: translateX(-50%);
+
+    display: flex;
+    flex-direction: column;
+}
+
+.my-cards {
+    display: flex;
+    align-items: center;
+    justify-items: center;
+    justify-content: center; 
+}
+
+.my-card {
+    position: relative;
+    margin: 12px;
+    height: 180px;
+    width: 118px;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-items: center;
+    justify-content: center; 
+}
+
+.my-card-img {
+    position: absolute;
+    height: 180px;
+    width: 118px;
+    border: 3px solid black;
+    border-radius: 8px;
+
+    background-color: white;
+}
+
+.my-card > div , .deck > div, .discard > div{
+    z-index: 5;
+    margin: 5px;
+    cursor: pointer;
+    display: none;
+    font-weight: bold;
+    color: gray
+
+}
+
+.my-card:hover > div, .deck:hover > div, .discard:hover > div {
+    display: block;
+}
+
+.my-card > div:hover, .deck > div:hover, .discard > div:hover {
+    font-weight: bolder;
+    color: black;
 }
 
 .my-banner {
@@ -25,7 +78,10 @@
     background-color: white;
     border: 3px solid black;
     border-radius: 8px;
-    padding: 4px;
+    padding: 8px;
+    margin: auto;
+
+    width: fit-content;
 }
 
 .my-name {
@@ -45,4 +101,208 @@
 
 .my-win-count {
     font-size: 30px;
+}
+
+.other-players-tableaus {
+    position: absolute;
+    z-index: -1;
+    height: 100%;
+    width: 100%;
+}
+
+.op-tableau {
+    position: absolute;
+
+    
+    transform: translate(-50%, -50%);
+}
+
+.op-cards {
+    display: flex;
+    align-items: center;
+    justify-items: center;
+    justify-content: center; 
+}
+
+.op-card {
+    position: relative;
+    margin: 6px;
+    height: 120px;
+    width: 75px;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-items: center;
+    justify-content: center; 
+}
+
+.op-card-img {
+    position: absolute;
+    height: 120px;
+    width: 75px;
+    border: 3px solid black;
+    border-radius: 8px;
+
+    background-color: white;
+}
+
+.op-card > div {
+    z-index: 1;
+    margin: 5px;
+    cursor: pointer;
+    display: none;
+    font-weight: bold;
+    color: gray
+
+}
+
+.op-card:hover > div {
+    display: block;
+}
+
+.op-card > div:hover {
+    font-weight: bolder;
+    color: black;
+}
+
+.op-banner {
+    display: flex;
+    align-items: center;
+    justify-content: space-between; 
+
+    width: fit-content;
+    margin: auto;
+
+    background-color: white;
+    border: 3px solid black;
+    border-radius: 8px;
+    padding: 8px;
+}
+
+.op-name {
+    font-size: 30px;
+}
+
+.op-wins {
+    display: flex;
+    align-items: center;
+    justify-content: space-between; 
+}
+
+.op-trophy {
+    height: 50px;
+    width: auto;
+}
+
+.op-win-count {
+    font-size: 30px;
+}
+
+
+
+.table {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+
+    background-image: url("../../assets/buffalo/table.jpg");
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+
+    border: 5px solid burlywood;
+    border-radius: 15px;
+
+    display: flex;
+    align-items: center;
+    justify-content: space-between; 
+}
+
+.deck, .discard {
+    position: relative;
+    margin: 20px;
+    height: 200px;
+    width: 125px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-items: center;
+    justify-content: center; 
+}
+
+.deck-img, .discard-img {
+    position: absolute;
+    height: 200px;
+    width: 125px;
+    border: 3px solid black;
+    background-color: white;
+    border-radius: 10px;
+}
+
+
+.game-options {
+    position: absolute;
+
+    margin: 10px;
+    padding: 20px;
+    padding-top: 3px;
+    background-color: white;
+    border: 5px solid black;
+    border-radius: 20px;
+}
+
+.game-options-title {
+    margin: 5px;
+    font-size: 25px;
+    font-weight: bold;
+}
+
+.ready-up, .un-ready-up, .call-buffalo, .queen-swap {
+    padding: 5px;
+    border: 2px solid black;
+    cursor: pointer;
+    border-radius: 5px;
+    text-align: center;
+    margin:5px;
+}
+
+.ready-up {
+    background-color: darkseagreen;
+}
+
+.ready-up:hover {
+    background-color: darkgreen;
+    color: white;
+}
+
+.un-ready-up {
+    background-color: lightgray;
+}
+
+.un-ready-up:hover {
+    background-color: gray;
+}
+
+.call-buffalo {
+    background-color: lightskyblue;
+}
+
+.call-buffalo:hover {
+    background-color: darkblue;
+    color: white;
+}
+
+.queen-swap {
+    background-color: lavender;
+}
+
+.queen-swap:hover {
+    background-color: purple;
+    color: white;
+}
+
+.buffalo-called-message {
+    text-align: center;
 }

@@ -52,15 +52,30 @@ import spadesK from "../assets/card-asset/king_of_spades.png";
 import spadesA from "../assets/card-asset/ace_of_spades.png";
 import joker from "../assets/card-asset/black_joker.png";
 import back from "../assets/card-asset/back.png"
+import slammed from "../assets/card-asset/back_slammed.png"
+import swapped from "../assets/card-asset/back_swapped.png"
 import blank from "../assets/card-asset/blank.png"
 
-export const getCardGraphic = (suit, number, visible) => {
-    if(!visible){
-        return back
+export const getCardGraphic = (card) => {
+
+    let suit = card.suit.name
+    let number = card.number.name
+
+
+    if (card.empty){
+        return blank
     }
 
-    if (!suit || !number){
-        return blank
+    if (card.slammed) {
+        return slammed
+    }
+
+    if (card.swapped) {
+        return swapped
+    }
+
+    if(!card.visible){
+        return back
     }
 
     if (suit === "clubs" && number === "two") {
