@@ -66,11 +66,11 @@ export const getCardGraphic = (card) => {
         return blank
     }
 
-    if (card.slammed) {
+    if (card.slammed && !card.visible) {
         return slammed
     }
 
-    if (card.swapped) {
+    if (card.swapped && !card.visible) {
         return swapped
     }
 

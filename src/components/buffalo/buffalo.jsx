@@ -101,10 +101,7 @@ const Buffalo = (props) => {
                             return(<div className="op-card">
                                 <img className="op-card-img" src={getCardGraphic(card)} alt="card-img" style={{
                                     borderColor: 
-                                    card.peeked||card.kingPeeked ? "goldenrod": 
-                                        (card.swapped ? "blue" : 
-                                            (card.queenSelected ? "purple" : "black")
-                                        )
+                                    card.peeked||card.kingPeeked ? "goldenrod": (card.queenSelected ? "purple" : "black")
                                 }}></img>
                                 <div className="queen-select-card" style={{display: card.queenSelectable ? "" : "none"}} onClick={()=>{
                                     handleRequest(server, gameId, name, setGameData, {
@@ -154,7 +151,7 @@ const Buffalo = (props) => {
         </div>
         <div className="game-options">
             <div className="game-options-title">Game Options</div>
-            <div className={gameData.you.ready ? "un-ready-up" : "ready-up"} onClick={()=>{
+            <div className={gameData.you.ready ? "un-ready-up" : "ready-up"} style={{display: gameData.otherData.canReadyUp ? "block" : "none"}} onClick={()=>{
                 handleRequest(server, gameId, name, setGameData, {
                     action: "toggle-ready"
                 })
@@ -169,7 +166,10 @@ const Buffalo = (props) => {
                     action: "queen-submit"
                 })
             }}>Swap!</div>
-            <div className="buffalo-called-message" style={{display: gameData.otherData.buffaloCalled ? "block" : "none"}}>Buffalo has been<br/> called: there are <br/>{gameData.otherData.turnsLeft} turns left!</div>
+            <div className="buffalo-called-message" style={{display: gameData.otherData.buffaloCalled ? "block" : "none"}}>Buffalo has been<br/> called: {(!(gameData.otherData.turnsLeft === 1)) ?
+             <>there are <br/>{gameData.otherData.turnsLeft} turns left!</> : 
+             <>THIS IS <br/> THE LAST TURN!!</>}
+            </div>
         </div>
     </div>)
 }
