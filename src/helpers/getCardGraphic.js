@@ -56,15 +56,20 @@ import slammed from "../assets/card-asset/back_slammed.png"
 import swapped from "../assets/card-asset/back_swapped.png"
 import blank from "../assets/card-asset/blank.png"
 
-export const getCardGraphic = (card) => {
-
-    let suit = card.suit.name
-    let number = card.number.name
-
+export const getCardGraphic = (card, logger) => {
+    if (logger){
+        console.log(card)
+    }
+    if(!card.visible){
+        return back
+    }
 
     if (card.empty){
         return blank
     }
+
+    let suit = card.suit.name
+    let number = card.number.name
 
     if (card.slammed && !card.visible) {
         return slammed
@@ -72,10 +77,6 @@ export const getCardGraphic = (card) => {
 
     if (card.swapped && !card.visible) {
         return swapped
-    }
-
-    if(!card.visible){
-        return back
     }
 
     if (suit === "clubs" && number === "two") {

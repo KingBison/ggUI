@@ -21,6 +21,12 @@
     flex-direction: column;
 }
 
+.my-tableau-TURNIND {
+    border: 5px solid goldenrod;
+    border-radius: 10px;
+    background-color:  lightyellow;
+}
+
 .my-cards {
     display: flex;
     align-items: center;
@@ -39,15 +45,68 @@
     align-items: center;
     justify-items: center;
     justify-content: center; 
-}
-
-.my-card-img {
-    position: absolute;
-    height: 180px;
-    width: 118px;
     border: 3px solid black;
     border-radius: 8px;
 
+    background-color: white;
+}
+
+.my-card-peeked {
+    animation: peek-resize 1s linear;
+}
+
+.my-card-peeked .my-card-img {
+    animation: peek-resize 1s linear, peek-img-hider 1s steps(2) forwards;
+}
+
+.my-card-peeked .my-card-img-flipper {
+    animation: peek-resize 1s linear, peek-flipper-hider 1s steps(2) forwards;
+}
+
+@keyframes peek-resize {
+    0% {
+        height: 180px;
+        width: 118px;
+    }
+    50% {
+        height: 1px;
+        width: 118px;
+    }
+    100% {
+        height: 180px;
+        width: 118px;
+    }
+}
+
+@keyframes peek-img-hider {
+    0% {
+        display: none;
+    }
+    49% {
+        display: block;
+    }
+    100% {
+        display: block;
+    }
+}
+
+@keyframes peek-flipper-hider {
+    0% {
+        display: block;
+    }
+    50% {
+        display: none;
+    }
+    100% {
+        display: none;
+    }
+}
+
+.my-card-img, .my-card-img-flipper{
+    position: absolute;
+    height: 176px;
+    width: 118px;
+    border-radius: 8px;
     background-color: white;
 }
 
@@ -70,18 +129,32 @@
     color: black;
 }
 
-.my-banner {
-    display: flex;
-    align-items: center;
-    justify-content: space-between; 
+.my-banner-main {
+    display: grid;
+    grid-template-columns: 33.333% 33.333% 33.333%;
 
     background-color: white;
     border: 3px solid black;
     border-radius: 8px;
     padding: 8px;
+    width: 80%;
     margin: auto;
+}
+
+.my-banner-main > div {
+    display: flex;
+    align-items: center;
+    justify-content: space-between; 
+    margin: auto;
+}
+
+.my-banner {
 
     width: fit-content;
+}
+
+.my-banner-ready {
+    border-color: green;
 }
 
 .my-name {
@@ -239,24 +312,6 @@
     border: 3px solid black;
     background-color: white;
     border-radius: 10px;
-}
-
-
-.game-options {
-    position: absolute;
-
-    margin: 10px;
-    padding: 20px;
-    padding-top: 3px;
-    background-color: white;
-    border: 5px solid black;
-    border-radius: 20px;
-}
-
-.game-options-title {
-    margin: 5px;
-    font-size: 25px;
-    font-weight: bold;
 }
 
 .ready-up, .un-ready-up, .call-buffalo, .queen-swap {

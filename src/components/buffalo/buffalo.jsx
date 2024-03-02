@@ -22,15 +22,25 @@ const Buffalo = (props) => {
     }
 
     return(<div className="buffalo">
-        <div className="my-tableau" style={{
-                            border: gameData.you.turnIndicator ? "5px solid gold" : "",
-                            borderRadius: gameData.you.turnIndicator ? "10px" : "",
-                            backgroundColor:  gameData.you.turnIndicator ? "lightyellow" : "",
-                        }}>
+        <div className={"my-tableau" + (gameData.you.turnIndicator ? " my-tableau-TURNIND" : "")} >
             <div className="my-cards">
                 {gameData.you.hand.map((card, i) => {
-                    return(<div className="my-card">
-                        <img className="my-card-img" src={getCardGraphic(card)} alt="i" style={{borderColor: card.queenSelected ? "purple" : "black"}}></img>
+                    return(<div className={"my-card" + ((card.peekAni || card.unPeekAni)?" my-card-peeked":"")}>
+                        <img className="my-card-img" src={
+                            (card.peekAni || card.unPeekAni) ? (
+                                (card.unPeekAni ? getCardGraphic({visible:false}) : getCardGraphic(card))
+                            ) : getCardGraphic(card)
+                        } alt="card" style={{borderColor: card.queenSelected ? "purple" : "black"}}/>
+                        <img className="my-card-img-flipper" src={(()=>{
+                            card.visible = true;
+                            return (card.peekAni || card.unPeekAni) ? (
+                                (card.unPeekAni ? getCardGraphic(card) : getCardGraphic({visible:false}))
+                            ) : getCardGraphic({visible:false})
+                        })() 
+                        } alt="card" style={{
+                            display: (card.peekAni || card.unPeekAni) ? "" : "none",
+                            borderColor: card.queenSelected ? "purple" : "black"
+                        }}></img>
                         <div className="slam-card" style={{display: card.slammable ? "" : "none"}} onClick={()=>{
                             handleRequest(server, gameId, name, setGameData, {
                                 action: "SLAM",
@@ -72,11 +82,36 @@ const Buffalo = (props) => {
                     </div>)
                 })}
             </div>
-            <div style={{borderColor: gameData.you.ready ? "green" : "black", backgroundColor: gameData.you.turnIndicator ? "lightyellow" : "white"}} className="my-banner">
-                <div className="my-name" style={{color: color}}>{name}</div>
-                <div className="my-wins">
-                    <img className="my-trophy" src={trophyIcon} alt="trophy"/>
-                    <div className="my-win-count">{gameData.you.wins}</div>
+            <div className="my-banner-main">
+                <div className="my-banner-advance">
+                    <div className={gameData.you.ready ? "un-ready-up" : "ready-up"} style={{display: gameData.otherData.canReadyUp ? "block" : "none"}} onClick={()=>{
+                        handleRequest(server, gameId, name, setGameData, {
+                            action: "toggle-ready"
+                        })
+                    }}>{gameData.you.ready ? "I'm NOT ready" : "I'm Ready!"}</div>
+                    <div className="queen-swap" style={{display: gameData.otherData.canQueenSwap ? "block" : "none"}}onClick={()=>{
+                        handleRequest(server, gameId, name, setGameData, {
+                            action: "queen-submit"
+                        })
+                    }}>Swap!</div>
+                </div>
+                <div className={"my-banner" + (gameData.you.ready ? " my-banner-ready":"")}>
+                    <div className="my-name" style={{color: color}}>{name}</div>
+                    <div className="my-wins">
+                        <img className="my-trophy" src={trophyIcon} alt="trophy"/>
+                        <div className="my-win-count">{gameData.you.wins}</div>
+                    </div>
+                </div>
+                <div className="my-banner-buffalo-actions">
+                    <div className="call-buffalo" style={{display: gameData.otherData.buffaloCallable ? "block" : "none"}}onClick={()=>{
+                        handleRequest(server, gameId, name, setGameData, {
+                            action: "call-buffalo"
+                        })
+                    }}>Call Buffalo</div>
+                    <div className="buffalo-called-message" style={{display: gameData.otherData.buffaloCalled ? "block" : "none"}}>Buffalo has been<br/> called: {(!(gameData.otherData.turnsLeft === 1)) ?
+                        <>there are <br/>{gameData.otherData.turnsLeft} turns left!</> : 
+                        <>THIS IS <br/> THE LAST TURN!!</>}
+                    </div>
                 </div>
             </div>
         </div>
@@ -149,29 +184,8 @@ const Buffalo = (props) => {
                 }}>Discard</div>
             </div>
         </div>
-        <div className="game-options">
-            <div className="game-options-title">Game Options</div>
-            <div className={gameData.you.ready ? "un-ready-up" : "ready-up"} style={{display: gameData.otherData.canReadyUp ? "block" : "none"}} onClick={()=>{
-                handleRequest(server, gameId, name, setGameData, {
-                    action: "toggle-ready"
-                })
-            }}>{gameData.you.ready ? "I'm NOT ready" : "I'm Ready!"}</div>
-            <div className="call-buffalo" style={{display: gameData.otherData.buffaloCallable ? "block" : "none"}}onClick={()=>{
-                handleRequest(server, gameId, name, setGameData, {
-                    action: "call-buffalo"
-                })
-            }}>Call Buffalo</div>
-            <div className="queen-swap" style={{display: gameData.otherData.canQueenSwap ? "block" : "none"}}onClick={()=>{
-                handleRequest(server, gameId, name, setGameData, {
-                    action: "queen-submit"
-                })
-            }}>Swap!</div>
-            <div className="buffalo-called-message" style={{display: gameData.otherData.buffaloCalled ? "block" : "none"}}>Buffalo has been<br/> called: {(!(gameData.otherData.turnsLeft === 1)) ?
-             <>there are <br/>{gameData.otherData.turnsLeft} turns left!</> : 
-             <>THIS IS <br/> THE LAST TURN!!</>}
-            </div>
-        </div>
     </div>)
 }
+
 
 export default Buffalo;
